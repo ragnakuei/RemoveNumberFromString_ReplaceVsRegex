@@ -26,7 +26,10 @@ namespace RemoveNumberFromString_ReplaceVsRegex
         }
 
         [Benchmark]
-        public void TestMethodRegex() => _test.TestMethodRegex("a1b2bc3d4e5f6g7h8i9j0k");
+        public void TestMethodRegexType1() => _test.TestMethodRegexType1("a1b2bc3d4e5f6g7h8i9j0k");
+
+        [Benchmark]
+        public void TestMethodRegexType2() => _test.TestMethodRegexType2("a1b2bc3d4e5f6g7h8i9j0k");
 
         [Benchmark]
         public void TestMethodReplaceType1() => _test.TestMethodReplaceType1("a1b2bc3d4e5f6g7h8i9j0k");
@@ -37,13 +40,19 @@ namespace RemoveNumberFromString_ReplaceVsRegex
 
     public class TestClass
     {
-        public string TestMethodRegex(string input)
+        public string TestMethodRegexType1(string input)
         {
             var    regexPattern = @"[0-9]";
             var    rx           = new Regex(regexPattern, RegexOptions.IgnoreCase);
             string result       = rx.Replace(input, string.Empty);
 
             return result;
+        }
+
+        public string TestMethodRegexType2(string input)
+        {
+            var regexPattern = @"[0-9]";
+            return Regex.Replace(input, regexPattern, string.Empty);
         }
 
         public string TestMethodReplaceType1(string input)
