@@ -67,8 +67,7 @@ namespace RemoveNumberFromString_ReplaceVsRegex
                         .Replace("6", string.Empty)
                         .Replace("7", string.Empty)
                         .Replace("8", string.Empty)
-                        .Replace("9", string.Empty)
-                        .Replace("0", string.Empty);
+                        .Replace("9", string.Empty);
         }
     }
 }
